@@ -8,15 +8,14 @@ import { Provider } from 'react-redux';
 import { Router } from 'react-router';
 
 import makeStore from './js/store/create';
-// import ApiClient from './js/helpers/ApiClient';
+import ApiClient from './js/helpers/ApiClient';
 // import FirebaseClient from './js/helpers/FirebaseClient';
 import C from './js/constants';
 
 
 const apiClient = new ApiClient();
-const firebaseClient = new FirebaseClient();
 const history = createBrowserHistory();
-const store = makeStore(apiClient, firebaseClient, window.__INITIAL_STATE__);
+const store = makeStore(apiClient, window.__INITIAL_STATE__);
 
 store.dispatch({ type: C.INIT_STORE });
 syncReduxAndRouter(history, store, (state) => state.router);

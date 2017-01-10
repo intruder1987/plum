@@ -1,4 +1,4 @@
-export default function clientMiddleware(apiClient, firebaseClient) {
+export default function clientMiddleware(apiClient) {
     return ({dispatch, getState}) => {
         return next => action => {
             if (typeof action !== 'function') {
@@ -16,7 +16,7 @@ export default function clientMiddleware(apiClient, firebaseClient) {
             const {auth} = getState();
             next({...rest, type: REQUEST});
             apiClient.token = auth.token;
-            return promise(action.firebase ? firebaseClient: apiClient).then(
+            return promise(apiClient).then(
                     (result) => next({...rest, result, type: SUCCESS}),
                     (error) => {
                         next({...rest, error, type: FAILURE})

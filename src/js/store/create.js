@@ -18,8 +18,8 @@ let logger = store => next => action => {
 	return result;
 };
 
-export default function makeStore(apiClient, firebaseClient, initialState) {
-	const middleware = [localStorageLoad, clientMiddleware(apiClient, firebaseClient), localStorageDump, logger];
-		let finalCreateStore = applyMiddleware(...middleware)(createStore);
+export default function makeStore(apiClient, initialState) {
+	const middleware = [localStorageLoad, clientMiddleware(apiClient), localStorageDump, logger];
+	let finalCreateStore = applyMiddleware(...middleware)(createStore);
 	return finalCreateStore(RootReducer, initialState);
 };
