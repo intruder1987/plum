@@ -87,8 +87,9 @@ gulp.task('compress', function() {
 });
 
 gulp.task('watch', ['assets', 'html', 'sass', 'browserify-watch'], function() {
-    gulp.watch('./src/styles/**/*.scss', ['reload-sass']);
-    gulp.watch('./src/**/*.html', ['reload-html']);
+    gulp.watch('./src/styles/**/*.scss', ['sass']);
+    gulp.watch('./src/**/*.html', ['html']);
+    gulp.watch('./src/**/*.js', ['browserify']);
 
     gutil.log(gutil.colors.bgGreen('Watching for changes...'));
 });

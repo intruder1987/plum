@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { pushPath } from 'redux-simple-router';
+import Menu from '../components/common/Menu';
 
 class App extends Component {
 
@@ -8,9 +9,7 @@ class App extends Component {
         const { location, children } = this.props;
 
         return <div className="app-container" >
-            <div>
-                test
-            </div>
+            <Menu path={location.pathname} />
             <div className="page-container">
                 {children}
             </div>
