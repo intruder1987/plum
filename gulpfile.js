@@ -43,6 +43,11 @@ gulp.task('sass', function () {
         .pipe(gulp.dest('./dist'));
 });
 
+gulp.task('fonts', function (cb) {
+    return gulp.src('src/styles/fonts/**/*')
+        .pipe(gulp.dest('dist/fonts/'));
+});
+
 gulp.task('browserify', function () {
     return browserify({entries: 'src/index.js', extensions: ['.js'], debug: true})
         .transform('babelify', {presets: ['stage-0', 'es2015', 'react'], plugins: ["transform-object-rest-spread", "transform-class-properties"]})
@@ -98,6 +103,7 @@ gulp.task('build', [
     'assets',
     'sass',
     'html',
+    'fonts',
     'browserify'
 ]);
 

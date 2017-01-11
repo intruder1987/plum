@@ -51,8 +51,8 @@ class Menu extends BaseComponent {
                             </div>
                             <div className="user-status">Partner</div>
                         </div>
-                        <div className="trigon">
-
+                        <div className="triangle-container">
+                            <div className="icon-triangle-blue"></div>
                         </div>
                     </a>
                 </nav>

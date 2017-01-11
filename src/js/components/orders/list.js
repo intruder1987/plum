@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { pushPath } from 'redux-simple-router';
 import BaseComponent from '../common/Base';
 import LeftMenuItem from '../common/LeftMenuItem';
+import SearchById from '../common/SearchById';
+import Button from '../common/forms/Button';
 
 class OrdersList extends BaseComponent {
 
@@ -18,6 +20,11 @@ class OrdersList extends BaseComponent {
                 <LeftMenuItem
                     title="Order placed"
                     count="2"
+                />
+                <SearchById/>
+                <Button
+                    className="add-order-button"
+                    children={<div className="label-button">create new order</div>}
                 />
             </div>
         );
