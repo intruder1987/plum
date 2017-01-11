@@ -8,8 +8,13 @@ class App extends Component {
     render() {
         const { location, children } = this.props;
 
+        let paths = [];
+        if (location && location.pathname) {
+            paths = location.pathname.split('/');
+        }
+
         return <div className="app-container" >
-            <Menu path={location.pathname} />
+            <Menu path={"/" + paths[1] || ""} />
             <div className="page-container">
                 {children}
             </div>

@@ -27,7 +27,7 @@ class TextInput extends Component {
                 {...opts}
                 ref={(node) => { this.input = node; }}
                 onChange={this.handleChange}
-                className={className}
+                className={className || 'default-input'}
                 autoComplete="off"
                 autoCorrect="off"
                 autoCapitalize="off"

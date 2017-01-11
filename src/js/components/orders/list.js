@@ -5,6 +5,7 @@ import BaseComponent from '../common/Base';
 import LeftMenuItem from '../common/LeftMenuItem';
 import SearchById from '../common/SearchById';
 import Button from '../common/forms/Button';
+import Select from '../common/forms/Select';
 
 class OrdersList extends BaseComponent {
 
@@ -26,6 +27,7 @@ class OrdersList extends BaseComponent {
                     className="add-order-button"
                     children={<div className="label-button">create new order</div>}
                 />
+                <Select/>
             </div>
         );
     }
