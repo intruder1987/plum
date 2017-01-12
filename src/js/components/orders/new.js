@@ -5,13 +5,14 @@ import BaseComponent from '../common/Base';
 import Button from '../common/forms/Button';
 import TextInput from '../common/forms/TextInput';
 import Select from '../common/forms/Select';
+import Checkbox from '../common/forms/Checkbox';
 
 class NewOrder extends BaseComponent {
 
     render() {
 
         return (
-            <div className="order-form-container">
+            <div className="order-container">
                 <div className="back-container">
                     <div className="icon-arrow-container">
                         <div className="icon-arrow-left2"></div>
@@ -23,40 +24,139 @@ class NewOrder extends BaseComponent {
                 <div className="header-container">
                     <div className="header">new order</div>
                 </div>
-                <div className="person-first">
-                    <div className="person-title">Person 1</div>
-                    <div className="person-columns">
-                        <div className="container-field">
-                            <label>Last name</label>
-                            <TextInput/>
+                <div className="order-form-container">
+                    <div className="person-first">
+                        <div className="person-title">Person 1</div>
+                        <div className="column-form">
+                            <div className="container-field">
+                                <label>Last name</label>
+                                <TextInput/>
+                            </div>
+                            <div className="container-field">
+                                <label>First name</label>
+                                <TextInput/>
+                            </div>
+                            <div className="container-field">
+                                <label>Date of birth</label>
+                                <TextInput/>
+                            </div>
                         </div>
-                        <div className="container-field">
-                            <label>First name</label>
-                            <TextInput/>
-                        </div>
-                        <div className="container-field">
-                            <label>Date of birth</label>
-                            <TextInput/>
+                        <div className="column-form">
+                            <div className="container-field">
+                                <label>Biologic gender</label>
+                                <Select/>
+                            </div>
+                            <div className="container-field">
+                                <label>Ethnicity</label>
+                                <Select/>
+                            </div>
                         </div>
                     </div>
-                    <div className="person-columns">
-                        <div className="container-field">
-                            <label>Biologic gender</label>
-                            <Select/>
+                    <div className="share-checkbox-container">
+                        <div className="empty-block"></div>
+                        <Checkbox
+                            children="Share results with family Physician or other licensed healthcare professional caring for client"
+                        />
+                    </div>
+                    <div className="physician-info-container">
+                        <div className="empty-block"></div>
+                        <div className="column-form">
+                            <div className="container-field">
+                                <label>Physician Name Last, First, Degree</label>
+                                <TextInput/>
+                            </div>
+                            <div className="container-field">
+                                <label>E-mail</label>
+                                <TextInput/>
+                            </div>
                         </div>
-                        <div className="container-field">
-                            <label>Ethnicity</label>
-                            <Select/>
+                        <div className="column-form">
+                            <div className="container-field">
+                                <label>Phone</label>
+                                <TextInput/>
+                            </div>
+                            <div className="container-field">
+                                <label>Fax</label>
+                                <TextInput/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="address-delivering-container">
+                        <div className="address-delivering-title">Address for delivering kits</div>
+                        <div className="column-form">
+                            <div className="container-field">
+                                <label>Address line 1</label>
+                                <TextInput/>
+                            </div>
+                            <div className="container-field">
+                                <label>Address line 2</label>
+                                <TextInput/>
+                            </div>
+                            <div className="container-field">
+                                <label>City</label>
+                                <TextInput/>
+                            </div>
+                        </div>
+                        <div className="column-form">
+                            <div className="container-field">
+                                <label>State/Province</label>
+                                <Select/>
+                            </div>
+                            <div className="container-field">
+                                <label>Zip/Postal code</label>
+                                <TextInput/>
+                            </div>
+                            <div className="container-field">
+                                <label>Country</label>
+                                <TextInput/>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="requisition-container">
+                        <div className="requisition-title">Upload requisition and consent</div>
+                        <div className="column-form">
+                            <div className="container-field">
+                                <label>Requisition</label>
+                            </div>
+                            <div className="container-field">
+                                <label>Consent</label>
+                            </div>
+                        </div>
+                        <div className="column-form">
+                            <div className="container-field">
+                                <Button
+                                    className="upload-button"
+                                    children={<div className="label-button">upload</div>}
+                                />
+                            </div>
+                            <div className="container-field">
+                                <Button
+                                    className="upload-button"
+                                    children={<div className="label-button">upload</div>}
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>
-                <div className="share-checkbox-container"></div>
-                <div className="physician-info-container"></div>
-                <div className="address-delivering-container"></div>
-                <div className="requisition-container"></div>
-                <div className="add-person-container"></div>
-                <div className="send-package-container"></div>
-                <div className="submit-container"></div>
+                <div className="add-person-container">
+                    <div className="add-person-link">+ Add a person</div>
+                </div>
+                <div className="send-package-container">
+                    <div className="title">Send the package and submit the tracking number</div>
+                    <div className="description"><div>Sara Anderson</div> 21/F., One Kowloon, 1 Wang Yuen Street, Kowloon Bay, Hong Kong</div>
+                    <div className="column-form">
+                        <div className="container-field">
+                            <label>Postal tracking number</label>
+                            <TextInput/>
+                        </div>
+                    </div>
+                </div>
+                <div className="submit-container">
+                    <Button
+                        className="submit-button"
+                        children={<div className="label-button">submit</div>}
+                    />
+                </div>
             </div>
         );
     }
