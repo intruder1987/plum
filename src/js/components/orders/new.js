@@ -6,10 +6,37 @@ import Button from '../common/forms/Button';
 import TextInput from '../common/forms/TextInput';
 import Select from '../common/forms/Select';
 import Checkbox from '../common/forms/Checkbox';
+import FileInput from '../common/forms/FileInput';
+import UploadedFile from '../common/UploadedFile';
 
 class NewOrder extends BaseComponent {
 
+    state = {
+
+    }
+
+    uploadFile = (field) => {
+        return (files) => {
+            if (files && files[0]) {
+                this.setState({
+                    ...this.state,
+                    [field]: files[0]
+                });
+            }
+        }
+    }
+
+    removeFile = (field) => {
+        return () => {
+            this.setState({
+                ...this.state,
+                [field]: null
+            });
+        }
+    }
+
     render() {
+        const { requisitionFile = null, consentFile = null } = this.state;
 
         return (
             <div className="order-container">
@@ -36,19 +63,11 @@ class NewOrder extends BaseComponent {
                                 <label>First name</label>
                                 <TextInput/>
                             </div>
-                            <div className="container-field">
-                                <label>Date of birth</label>
-                                <TextInput/>
-                            </div>
                         </div>
                         <div className="column-form">
                             <div className="container-field">
-                                <label>Biologic gender</label>
-                                <Select/>
-                            </div>
-                            <div className="container-field">
-                                <label>Ethnicity</label>
-                                <Select/>
+                                <label>Kit ID</label>
+                                <TextInput/>
                             </div>
                         </div>
                     </div>
@@ -124,16 +143,44 @@ class NewOrder extends BaseComponent {
                         </div>
                         <div className="column-form">
                             <div className="container-field">
-                                <Button
-                                    className="upload-button"
-                                    children={<div className="label-button">upload</div>}
-                                />
+                                {requisitionFile
+                                    ? <UploadedFile
+                                        file={requisitionFile}
+                                        onRemove={this.removeFile('requisitionFile')}
+                                    />
+                                    : <Button
+                                        className="upload-button"
+                                        children={
+                                            <div>
+                                                <div className="label-button">upload</div>
+                                                <FileInput
+                                                    className="button-file-input"
+                                                    onChange={this.uploadFile('requisitionFile')}
+                                                />
+                                            </div>
+                                        }
+                                    />
+                                }
                             </div>
                             <div className="container-field">
-                                <Button
-                                    className="upload-button"
-                                    children={<div className="label-button">upload</div>}
-                                />
+                                {consentFile
+                                    ? <UploadedFile
+                                        file={consentFile}
+                                        onRemove={this.removeFile('consentFile')}
+                                    />
+                                    : <Button
+                                        className="upload-button"
+                                        children={
+                                            <div>
+                                                <div className="label-button">upload</div>
+                                                <FileInput
+                                                    className="button-file-input"
+                                                    onChange={this.uploadFile('consentFile')}
+                                                />
+                                            </div>
+                                        }
+                                    />
+                                }
                             </div>
                         </div>
                     </div>
