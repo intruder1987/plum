@@ -241,6 +241,10 @@ header {
   }
 }
 
+.page-container {
+  height: calc(100vh - 80px);
+}
+
 .left-menu-item-container {
   width: 220px;
   height: 40px;
@@ -249,6 +253,7 @@ header {
   align-items: center;
   justify-content: space-between;
   -webkit-justify-content: space-between;
+  cursor: pointer;
 
   .counter-container {
     width: 21px;
@@ -563,6 +568,84 @@ header {
       background-color: #F36F3E;
       border-radius: 100px;
       cursor: pointer;
+    }
+  }
+}
+
+.order-list-container {
+  width: 100%;
+  height: 100%;
+  background-color: #F7F7F7;
+  display: flex;
+  display: -webkit-flex;
+  flex-direction: row;
+  -webkit-flex-direction: row;
+  & > div {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .order-left-menu {
+    width: 250px;
+    padding-top: 32px;
+    .add-order-button {
+      margin: 0 auto;
+    }
+    .left-menu-container {
+      margin-top: 67px;
+      & > div {
+        margin: 0 auto;
+      }
+    }
+  }
+  .order-list {
+    width: calc(100% - 250px);
+    .header {
+      display: flex;
+      display: -webkit-flex;
+      justify-content: space-between;
+      -webkit-justify-content: space-between;
+      align-items: flex-end;
+      height: 54px;
+      padding: 15.5px 22.5px 0 39px;
+      .column {
+        height: 18px;
+        font-family: Lato;
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 18px;
+        color: #B0B0B0;
+      }
+    }
+    .list-container {
+      margin: 15px 10px 0 0;
+      background-color: #FFFFFF;
+      padding: 12px 13px 0 29px;
+      border: 1px solid #F0F0F0;
+      height: calc(100% - 99px);
+      .order-row {
+        border-top: 1px #D8D8D8 solid;
+        display: flex;
+        display: -webkit-flex;
+        justify-content: space-between;
+        -webkit-justify-content: space-between;
+        align-items: center;
+        height: 59px;
+        font-family: Lato;
+        font-size: 15px;
+        line-height: 25px;
+        color: #4A4A4A;
+        .order-id {
+          margin-left: 10px;
+        }
+        .details {
+          min-width: 197px;
+          text-align: center;
+        }
+        .order-name, .details {
+          color: #06B4A0;
+          text-decoration: underline;
+        }
+      }
     }
   }
 }

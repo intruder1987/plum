@@ -17,7 +17,7 @@ class NewOrder extends BaseComponent {
                     <div className="icon-arrow-container">
                         <div className="icon-arrow-left2"></div>
                     </div>
-                    <div className="back">
+                    <div className="back" onClick={this.clickToLinkHandler.bind(null, '/orders')}>
                         Back to orders
                     </div>
                 </div>
