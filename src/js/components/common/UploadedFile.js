@@ -20,7 +20,7 @@ class UploadedFile extends BaseComponent {
                 <div className="title">
                     {file.name ? file.name : 'N/A'}
                 </div>
-                <div className="close-icon-container">
+                <div className={onRemove ? 'close-icon-container' : 'hide'}>
                     <div className="icon-cross" onClick={onRemove}></div>
                 </div>
             </div>

@@ -8,6 +8,7 @@ import Select from '../common/forms/Select';
 import Checkbox from '../common/forms/Checkbox';
 import FileInput from '../common/forms/FileInput';
 import UploadedFile from '../common/UploadedFile';
+import Popup from '../common/Popup';
 
 class NewOrder extends BaseComponent {
 
@@ -35,8 +36,17 @@ class NewOrder extends BaseComponent {
         }
     }
 
+    setCheckbox = (field) => {
+        return (value) => {
+            this.setState({
+                ...this.state,
+                [field]: value
+            });
+        }
+    }
+
     render() {
-        const { requisitionFile = null, consentFile = null } = this.state;
+        const { requisitionFile = null, consentFile = null, share = true } = this.state;
 
         return (
             <div className="order-container">
@@ -51,6 +61,32 @@ class NewOrder extends BaseComponent {
                 <div className="header-container">
                     <div className="header">new order</div>
                 </div>
+                <Popup>
+                    <div className="check-sample-container">
+                        <div className="close-icon-container">
+                            <div className="icon-cross"></div>
+                        </div>
+                        <div className="title">
+                            Please, check the sample RQ7745
+                        </div>
+                        <div className="choose-attribute-container">
+                            <div className="first-attribute">Normal</div>
+                            <div className="second-attribute">Contaminated</div>
+                        </div>
+                        <div className="choose-attribute-container">
+                            <div className="first-attribute">Sealed</div>
+                            <div className="second-attribute">Leaking</div>
+                        </div>
+                        <div className="choose-attribute-container">
+                            <div className="first-attribute">Minimum Volume</div>
+                            <div className="second-attribute">Less than minimum</div>
+                        </div>
+                        <Button
+                            className="submit-button"
+                            children={<div className="label-button">submit</div>}
+                        />
+                    </div>
+                </Popup>
                 <div className="order-form-container">
                     <div className="person-first">
                         <div className="person-title">Person 1</div>
@@ -74,6 +110,8 @@ class NewOrder extends BaseComponent {
                     <div className="share-checkbox-container">
                         <div className="empty-block"></div>
                         <Checkbox
+                            value={share}
+                            onChange={this.setCheckbox('share')}
                             children="Share results with family Physician or other licensed healthcare professional caring for client"
                         />
                     </div>

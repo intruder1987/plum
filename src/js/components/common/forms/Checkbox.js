@@ -1,6 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-// import checkboxOff from './images/checkbox-off.png';
-// import checkboxOn from './images/checkbox-on.png';
 
 class CheckBox extends Component {
     handleClick = () => {
@@ -20,10 +18,14 @@ class CheckBox extends Component {
             children
         } = this.props;
 
-        // const checkIconUrl = value ? checkboxOn : checkboxOff;
+        let cls = className || 'default-checkbox';
+        if (value) {
+            cls += ' checked';
+        }
+
         return (
             <div className="checkbox-container" onClick={this.handleClick} >
-                <div className={className ? className : 'default-checkbox'} ></div>
+                <div className={cls} ></div>
                 {!children ? null : (
                         <div className={classLabel ? classLabel : 'default-checkbox-label'}>{children}</div>
                     )}
