@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import BaseComponent from './Base';
+import BaseComponent from './BaseComponent';
 
 class UploadedFile extends BaseComponent {
 

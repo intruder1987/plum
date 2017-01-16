@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { pushPath } from 'redux-simple-router';
-import BaseComponent from '../common/Base';
+import BaseComponent from '../common/BaseComponent';
 import Button from '../common/forms/Button';
 import TextInput from '../common/forms/TextInput';
 import Select from '../common/forms/Select';

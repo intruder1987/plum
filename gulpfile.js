@@ -14,6 +14,55 @@ var concat = require('gulp-concat');
 var notify = require('gulp-notify');
 var uglify = require('gulp-uglify');
 
+var path = require('path');
+var webpack = require('webpack');
+var src = path.join(__dirname, 'src');
+
+
+var config = {
+    context: src,
+    entry: './index',
+    output: {
+        path: path.join(__dirname, 'dist')
+    },
+    plugins: [
+        // new webpack.optimize.UglifyJsPlugin({
+        //     minimize: true,
+        //     compress: {
+        //         warnings: false
+        //     }
+        // }),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.DefinePlugin({
+            NODE_ENV: JSON.stringify('prod')
+        })
+    ],
+    module: {
+        loaders: [{
+            test: /.js?$/,
+            loader: 'babel-loader',
+            include: src,
+            exclude: /node_modules/,
+            query: {
+                presets: [
+                    'es2015',
+                    'stage-1',
+                    'react'
+                ]
+            }
+        }]
+    },
+    // resolve: {
+    //     root: path.resolve(__dirname),
+    //     extensions: ['', '.js', '.jsx'],
+    //     alias: {
+    //         components: 'js/components'
+    //     }
+    // }
+};
+var compiler = webpack(config);
+
+
 var handleError = function(task) {
     return function(err) {
         notify.onError({
@@ -49,40 +98,45 @@ gulp.task('fonts', function (cb) {
 });
 
 gulp.task('browserify', function () {
-    return browserify({entries: 'src/index.js', extensions: ['.js'], debug: true})
-        .transform('babelify', {presets: ['stage-0', 'es2015', 'react'], plugins: ["transform-object-rest-spread", "transform-class-properties"]})
-        .bundle()
-        .on('error', handleError('Browserify'))
-        .pipe(source('bundle.js'))
-        .pipe(gulp.dest('dist'));
+    // return browserify({entries: 'src/index.js', extensions: ['.js'], debug: true})
+    //     .transform('babelify', {presets: ['stage-0', 'es2015', 'react'], plugins: ["transform-object-rest-spread", "transform-class-properties"]})
+    //     .bundle()
+    //     .on('error', handleError('Browserify'))
+    //     .pipe(source('bundle.js'))
+    //     .pipe(gulp.dest('dist'));
+    compiler.run(function (err, stats) {
+        console.log(stats.toJson());
+    });
 });
 
 gulp.task('browserify-watch', function () {
-    var bundler = watchify(browserify({
-            entries: 'src/index.js',
-            extensions: ['.js'],
-            debug: false,
-            cache: {},
-            packageCache: {},
-            fullPaths: true}),
-        {ignoreWatch: ['**/node_modules/**']});
-    bundler.transform('babelify',
-        {presets: ['stage-0', 'es2015', 'react'],
-            plugins: ["transform-object-rest-spread", "transform-class-properties"]});
-
-    function rebundle() {
-        var bundleTimer = duration('browserify time')
-        console.log('Start browserify');
-        return bundler.bundle()
-            .on('error', handleError('Browserify'))
-            .pipe(source('bundle.js'))
-            .pipe(bundleTimer)
-            .pipe(gulp.dest('dist'));
-    }
-    bundler.on('update', rebundle);
-    // run any other gulp.watch tasks
-
-    return rebundle();
+    // var bundler = watchify(browserify({
+    //         entries: 'src/index.js',
+    //         extensions: ['.js'],
+    //         debug: false,
+    //         cache: {},
+    //         packageCache: {},
+    //         fullPaths: true}),
+    //     {ignoreWatch: ['**/node_modules/**']});
+    // bundler.transform('babelify',
+    //     {presets: ['stage-0', 'es2015', 'react'],
+    //         plugins: ["transform-object-rest-spread", "transform-class-properties"]});
+    //
+    // function rebundle() {
+    //     var bundleTimer = duration('browserify time')
+    //     console.log('Start browserify');
+    //     return bundler.bundle()
+    //         .on('error', handleError('Browserify'))
+    //         .pipe(source('bundle.js'))
+    //         .pipe(bundleTimer)
+    //         .pipe(gulp.dest('dist'));
+    // }
+    // bundler.on('update', rebundle);
+    //
+    // return rebundle();
+    compiler.run(function (err, stats) {
+        console.log(stats.toJson());
+    });
 });
 
 gulp.task('compress', function() {

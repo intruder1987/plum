@@ -303,6 +303,7 @@ header {
   height: 37px;
   border: 1px solid #ACACAC;
   border-radius: 100px;
+  position: relative;
   .search-by-id {
     border: none;
     background-color: #F7F7F7;
@@ -314,6 +315,10 @@ header {
     line-height: 25px;
     color: #A6A6A6;
     margin: 6px 0 4.5px 18.5px;
+
+    &:focus~div.popover {
+      display: block;
+    }
   }
   .search-icon-container {
     margin: 9.5px 13.5px 2.5px 0;
@@ -321,6 +326,22 @@ header {
     height: 24px;
     display: inline-block;
     vertical-align: middle;
+  }
+  .popover {
+    position: absolute;
+    width: 196px;
+    height: 62px;
+    background-color: #E4E5EC;
+    margin-top: 3.5px;
+    display: none;
+    .text {
+      padding: 14px 40px 16px 19px;
+      font-family: Lato;
+      font-size: 14px;
+      font-style: italic;
+      line-height: 16px;
+      color: #929292;
+    }
   }
 }
 

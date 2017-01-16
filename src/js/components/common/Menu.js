@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { pushPath } from 'redux-simple-router';
-import BaseComponent from './Base';
+import BaseComponent from './BaseComponent';
 
 const menuItems = [
     {

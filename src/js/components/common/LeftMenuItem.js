@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { pushPath } from 'redux-simple-router';
-import BaseComponent from './Base';
+import BaseComponent from './BaseComponent';
 
 class LeftMenuItem extends BaseComponent {
 
@@ -23,6 +23,12 @@ class LeftMenuItem extends BaseComponent {
     }
 
 }
+
+LeftMenuItem.propTypes = {
+    title: PropTypes.string,
+    count: PropTypes.number,
+    isActive: PropTypes.bool
+};
 
 const mapStateToProps = function(state){
     return {
