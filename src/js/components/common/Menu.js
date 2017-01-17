@@ -34,7 +34,22 @@ class Menu extends BaseComponent {
             <header>
                 <nav role="navigation">
                     <a key="memu_0" className="logo" onClick={this.clickToLinkHandler.bind(null, '/')}>
-                        plumcare
+                        <div className="icon-Plumcare-logo-vector">
+                            <div className="path1"></div>
+                            <div className="path2"></div>
+                            <div className="path3"></div>
+                            <div className="path4"></div>
+                            <div className="path5"></div>
+                            <div className="path6"></div>
+                            <div className="path7"></div>
+                            <div className="path8"></div>
+                            <div className="path9"></div>
+                            <div className="path10"></div>
+                            <div className="path11"></div>
+                            <div className="path12"></div>
+                            <div className="path13"></div>
+                            <div className="path14"></div>
+                        </div>
                     </a>
                     { menuItems.map(item => {
                         return <a key={"menu_" + item.id} className={item.path === currentPath && 'active'} onClick={this.clickToLinkHandler.bind(null, item.path)}>

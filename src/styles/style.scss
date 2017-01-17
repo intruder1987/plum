@@ -8,6 +8,20 @@ input, select {
 }
 
 @font-face {
+  font-family: 'Lato';
+  src:    url('./fonts/Lato/Lato-Regular.ttf?d9twri');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato-italic';
+  src:    url('./fonts/Lato/Lato-Italic.ttf?d9twri');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: 'icomoon';
   src:    url('./fonts/icomoon.eot?d9twri');
   src:    url('./fonts/icomoon.eot?d9twri#iefix') format('embedded-opentype'),
@@ -114,6 +128,83 @@ input, select {
   font-size: 15px;
 }
 
+.icon-Plumcare-logo-vector {
+  font-size: 45px;
+  display: inline-block;
+  & > div {
+    display: inline-block;
+  }
+  .path1:before {
+    content: "\e902";
+    color: #482f94;
+  }
+  .path2:before {
+    content: "\e903";
+    color: #482f94;
+    margin-left: -4.7021484375em;
+  }
+  .path3:before {
+    content: "\e90b";
+    color: #05b49f;
+    margin-left: -4.7021484375em;
+  }
+  .path4:before {
+    content: "\e90c";
+    color: #05b49f;
+    margin-left: -4.7021484375em;
+  }
+  .path5:before {
+    content: "\e913";
+    color: #482f94;
+    margin-left: -4.7021484375em;
+  }
+  .path6:before {
+    content: "\e914";
+    color: #482f94;
+    margin-left: -4.7021484375em;
+  }
+  .path7:before {
+    content: "\e915";
+    color: #000;
+    margin-left: -4.7021484375em;
+  }
+  .path8:before {
+    content: "\e916";
+    color: #482f94;
+    margin-left: -4.7021484375em;
+  }
+  .path9:before {
+    content: "\e917";
+    color: #05b49f;
+    margin-left: -4.7021484375em;
+  }
+  .path10:before {
+    content: "\e918";
+    color: #05b49f;
+    margin-left: -4.7021484375em;
+  }
+  .path11:before {
+    content: "\e919";
+    color: #482f94;
+    margin-left: -4.7021484375em;
+  }
+  .path12:before {
+    content: "\e91a";
+    color: #03b4a0;
+    margin-left: -4.7021484375em;
+  }
+  .path13:before {
+    content: "\e91b";
+    color: #03b4a0;
+    margin-left: -4.7021484375em;
+  }
+  .path14:before {
+    content: "\e91c";
+    color: #05b49f;
+    margin-left: -4.7021484375em;
+  }
+}
+
 .default-input {
   width: 279px;
   height: 23px;
@@ -156,6 +247,10 @@ input, select {
 }
 
 .default-checkbox-label {
+  font-family: Lato;
+  font-size: 15px;
+  line-height: 25px;
+  color: #4A4A4A;
   margin-left: 14px;
 }
 
@@ -194,9 +289,9 @@ header {
 
       &.logo {
         order: -1;
-        text-align: center;
         cursor: pointer;
-        margin-left: 27px;
+        height: 62px;
+        padding: 18px 0 0 27px;
       }
 
       &.user-logo {
@@ -235,6 +330,7 @@ header {
         .triangle-container {
           display: inline-block;
           vertical-align: middle;
+          margin-left: 3px;
         }
       }
 
@@ -310,7 +406,7 @@ header {
     min-width: 91px;
     max-width: 147px;
     height: 24px;
-    font-family: "Lucida Grande";
+    font-family: "Lato";
     font-size: 15px;
     line-height: 25px;
     color: #A6A6A6;
@@ -336,9 +432,9 @@ header {
     display: none;
     .text {
       padding: 14px 40px 16px 19px;
-      font-family: Lato;
+      width: 137px;
+      font-family: Lato-italic;
       font-size: 14px;
-      font-style: italic;
       line-height: 16px;
       color: #929292;
     }

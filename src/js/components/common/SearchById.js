@@ -16,8 +16,8 @@ class SearchById extends BaseComponent {
                 </div>
                 <div className="popover">
                     <div className="text">
-                        For example:
-                        RQ12345 or OR12345
+                        <div>For example:</div>
+                        <div>RQ12345 or OR12345</div>
                     </div>
                 </div>
             </div>
